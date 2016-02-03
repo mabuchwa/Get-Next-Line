@@ -6,7 +6,7 @@
 /*   By: mabuchwa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 16:09:49 by mabuchwa          #+#    #+#             */
-/*   Updated: 2016/02/01 16:44:09 by mabuchwa         ###   ########.fr       */
+/*   Updated: 2016/02/03 11:24:49 by mabuchwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <unistd.h>
 #include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "libft.h"
 
 #define BUFF_SIZE 3
 

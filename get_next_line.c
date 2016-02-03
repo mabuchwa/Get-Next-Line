@@ -6,7 +6,7 @@
 /*   By: mabuchwa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 16:14:40 by mabuchwa          #+#    #+#             */
-/*   Updated: 2016/02/02 12:23:55 by mabuchwa         ###   ########.fr       */
+/*   Updated: 2016/02/03 11:47:27 by mabuchwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,38 @@
 int		get_next_line(int const fd, char **line)
 {
 	int				ret;
-	char			buf[BUFF_SIZE];
-	static char		*str;
+	int				i;
+	char			buf[BUFF_SIZE + 1];
+	char			*tmp;
 
-	str = ft_strnew(1);
+	tmp = ft_strnew(1);
+	i = 0;
+	if (fd < 0)
+		return (-1);
 	while ((ret = read(fd, buf, BUFF_SIZE)))
 	{
-		
+		buf[ret] = '\0';
+		tmp = ft_strjoin(tmp, buf);
+		*line = tmp;
+		return (1);
 	}
-
+	return (0);
 }
 
 int		main(int ac, char **av)
 {
-	int const	fd;
+	int			fd;
 	char		**line;
 
+	line = (char**)malloc(sizeof(*line));
 	fd = open(av[1], O_RDONLY);
 	if (ac == 2)
 	{
-		*line = av[1];
 		while (get_next_line(fd, line) == 1)
 		{
 			printf("%s\n", *line);
 		}
-		close(av[1]);
+		close(fd);
 	}
 	else
 		write(1, "error\n", 6);
