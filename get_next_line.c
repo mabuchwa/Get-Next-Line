@@ -33,7 +33,7 @@ char	*get_line(char *rest, char **line)
 	return (rest);
 }
 
-char	*no_name(char *rest)
+char	*ft_freedom(char *rest)
 {
 	free(rest);
 	rest = NULL;
