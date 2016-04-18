@@ -1,2 +1,1 @@
-# Get-Next-Line
-42 project GNL
+GET NEXT LINE
