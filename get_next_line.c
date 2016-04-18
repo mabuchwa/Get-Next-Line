@@ -6,7 +6,7 @@
 /*   By: mabuchwa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 16:14:40 by mabuchwa          #+#    #+#             */
-/*   Updated: 2016/02/04 18:17:28 by mabuchwa         ###   ########.fr       */
+/*   Updated: 2016/02/05 10:39:32 by tcharrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,8 @@ int		get_next_line(int const fd, char **line)
 			return (1);
 	}
 	rest = get_last_line(rest, line);
-	if (*line != NULL && (rest = no_name(rest)) == NULL)
+	if (*line != NULL)
 		return (1);
+	rest = no_name(rest);
 	return (0);
 }
